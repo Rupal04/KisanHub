@@ -9,6 +9,7 @@ class Location(models.Model):
 
     name = models.CharField(null=False, max_length=100)
 
+
 class Measure(models.Model):
     class Meta:
         db_table = "measure"
@@ -16,7 +17,7 @@ class Measure(models.Model):
     value = models.FloatField()
     year = models.IntegerField()
     month = models.IntegerField()
-    metrics = models.IntegerField(choices= Metrics)
+    metrics = models.IntegerField(choices=Metrics)
     location = models.ForeignKey(Location)
 
 
