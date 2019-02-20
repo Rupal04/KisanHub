@@ -2,8 +2,6 @@ import logging
 import json
 import requests
 
-from rest_framework.decorators import api_view
-
 from weather.constants import ErrorConstants, MetricsConstant
 from weather.response import SuccessResponse, ErrorResponse, WeatherResponse
 from weather.models import Location, Measure
