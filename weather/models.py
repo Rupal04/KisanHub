@@ -18,6 +18,6 @@ class Measure(models.Model):
     year = models.IntegerField()
     month = models.IntegerField()
     metrics = models.CharField(choices=Metrics, max_length=50)
-    location = models.ForeignKey(Location)
+    location = models.ForeignKey('Location', on_delete=models.CASCADE)
 
 

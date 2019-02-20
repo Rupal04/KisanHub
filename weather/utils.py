@@ -1,6 +1,8 @@
 import logging
-import requests
 import json
+import requests
+
+from rest_framework.decorators import api_view
 
 from weather.constants import ErrorConstants, MetricsConstant
 from weather.response import SuccessResponse, ErrorResponse, WeatherResponse
@@ -78,17 +80,17 @@ def add_weather_information():
             #for rainfall
             metric = MetricsConstant.Rainfall
             rainfall_metric= get_metrics_data_and_store(base_api_url, metric, location_name, location)
-            print rainfall_metric.msg
+            print(rainfall_metric.msg)
 
             #for Tmax
             metric = MetricsConstant.Tmax
             tmax_metric = get_metrics_data_and_store(base_api_url, metric, location_name, location)
-            print tmax_metric.msg
+            print(tmax_metric.msg)
 
             #for Tmin
             metric = MetricsConstant.Tmin
             tmin_metric = get_metrics_data_and_store(base_api_url, metric, location_name, location)
-            print tmin_metric.msg
+            print(tmin_metric.msg)
 
     except Exception as e:
         logger.error(ErrorConstants.WEATHER_INFO_STORING_ERROR + str(e), exc_info=True)

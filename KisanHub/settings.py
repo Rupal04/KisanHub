@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'KisanHub.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'weather',
+        'NAME': 'weather_data',
         'HOST': 'localhost',
         'POST': '3306',
         'USER': 'root',

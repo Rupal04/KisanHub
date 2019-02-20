@@ -10,6 +10,7 @@ from rest_framework import status
 
 logger = logging.getLogger(__name__)
 
+
 @api_view(['GET'])
 def fetch_weather_data(request):
     try:
