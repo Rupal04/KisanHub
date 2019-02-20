@@ -1,23 +1,26 @@
 import logging
 
+from rest_framework.decorators import api_view
+
 from weather.constants import ErrorConstants
 from weather.response import ErrorResponse
-from weather.utils import to_dict
+from weather.utils import to_dict, get_weather_information
 from rest_framework.response import Response
 from rest_framework import status
 
 logger = logging.getLogger(__name__)
 
-
+@api_view(['GET'])
 def fetch_weather_data(request):
     try:
-        data = request.data()
-        start_date = data.get("start_date", "")
-        end_date = data.get("end_date", "")
-        metric = data.get("metric", "")
-        location = data.get("location", "")
+        query_params = request.query_params
 
-        weather_resp = get_weather_information(start_date, end_date, metric, location)
+        start_date = query_params.get("start_date","")
+        end_date = query_params.get("end_date", "")
+        metric = query_params.get("metric","")
+        location = query_params.get("location","")
+
+        weather_resp = get_weather_information(start_date=start_date, end_date=end_date, metric=metric, location=location)
 
         if not weather_resp:
             response = ErrorResponse(msg=ErrorConstants.WEATHER_INFO_FETCHING_ERROR)

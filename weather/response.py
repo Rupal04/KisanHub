@@ -15,18 +15,9 @@ class ErrorResponse(object):
 
 class WeatherResponse(object):
     value = None
-    year = None
-    month = None
+    date = None
 
-    def __init__(self, value, year, month):
-        self.value = value
-        self.year = year
-        self.month = month
-
-
-class WeatherListResponse(object):
-    def __init__(self, results=None, msg=SuccessConstants.SUCCESS_RESPONSE):
-        if results is not None:
-            self.results = results
+    def __init__(self, results, msg=SuccessConstants.SUCCESS_RESPONSE):
+        self.results = results
         self.msg = msg
         self.success = True

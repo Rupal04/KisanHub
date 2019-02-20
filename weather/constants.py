@@ -13,7 +13,6 @@ class MetricsConstant(object):
 
 class SuccessConstants(object):
     SUCCESS_RESPONSE = "Successful"
-    WEATHER_DATA_STORE_SUCCESS = "Successfully stored wether information to that database."
 
 
 class ErrorConstants(object):
@@ -21,3 +20,4 @@ class ErrorConstants(object):
     EXCEPTIONAL_ERROR = "Some Unexpected Exception Occured. Error is "
     WEATHER_INFO_FETCHING_ERROR = "Error in fetching weather information."
     WEATHER_INFO_STORING_ERROR = "Error in storing weather information."
+    WEATHER_INFO_ALREADY_EXISTS = "Weather information already exists for this."

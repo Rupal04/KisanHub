@@ -17,7 +17,7 @@ class Measure(models.Model):
     value = models.FloatField()
     year = models.IntegerField()
     month = models.IntegerField()
-    metrics = models.IntegerField(choices=Metrics)
+    metrics = models.CharField(choices=Metrics, max_length=50)
     location = models.ForeignKey(Location)
 
 
